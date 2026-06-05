@@ -1,13 +1,20 @@
 # UAP Extra Payouts
 
-This repository currently contains the plugin archive split into base64 parts because direct local git push is not authenticated on the workstation.
+Local plugin archive has been built on the workstation:
 
-To restore the installable zip after downloading the repository:
-
-```bash
-cat archive-parts/web86-uap-stripe-global-payouts.zip.b64.part* | base64 -d > web86-uap-stripe-global-payouts.zip
+```text
+/Users/macbook/Sites/leo/web86-uap-stripe-global-payouts.zip
 ```
 
-Then upload `web86-uap-stripe-global-payouts.zip` in WordPress Plugins > Add New > Upload Plugin, or unzip it into `wp-content/plugins/`.
+The workstation currently cannot push to GitHub because neither HTTPS credentials nor an SSH key are configured for `github.com`.
 
-Local source commit used to build this archive: `c3e5090`.
+Fastest upload options:
+
+1. Open this repository in GitHub and drag `web86-uap-stripe-global-payouts.zip` into the file upload screen.
+2. Configure SSH or HTTPS token locally, then run from `wp-content/plugins/web86-uap-stripe-global-payouts`:
+
+```bash
+git push --force-with-lease -u origin main
+```
+
+Local source commit used to build the archive: `c3e5090`.
